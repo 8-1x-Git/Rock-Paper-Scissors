@@ -1,6 +1,10 @@
 #include "game.h"
 #include <iostream>
 
+bool validMove(const std::string& input) {
+    return input == "0" || input == "1" || input == "2" || input == "3";
+}
+
 int main() {
     std::cout << "Rock Paper Scissors (beginner project)\n";
     std::cout << "Enter 1=Rock, 2=Paper, 3=Scissors, 0=Exit\n\n";
@@ -18,11 +22,16 @@ int main() {
         std::cout << "Your choice: ";
         std::getline(std::cin, input);
 
+        if (!validMove(input)) {
+            std::cout << "Enter valid number from 0 to 3" << "\n";
+            continue;
+        }
+
         Move playerMove = parseMove(input);
 
         if (input == "0") {
             std::cout << "Exiting...\n";
-            // TODO: Stop the game when the user chooses exit.
+            return 0;
         }
 
         Move computerMove = getComputerMove();

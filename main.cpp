@@ -10,10 +10,6 @@ int main() {
 
     bool keepPlaying = true;
     while (keepPlaying) {
-        // TODO: Fix score reset; scores should persist across rounds.
-        playerScore = 0;
-        computerScore = 0;
-
         std::string input;
         std::cout << "Your choice: ";
         std::getline(std::cin, input);
